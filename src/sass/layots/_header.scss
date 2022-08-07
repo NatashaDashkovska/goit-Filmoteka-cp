@@ -1,0 +1,30 @@
+.header {
+  background-image: url('../images/1-320.jpg');
+  padding: 46px 20px 97px;
+}
+
+.nav {
+  display: flex;
+}
+.logo svg {
+  width: 24px;
+  height: 24px;
+  fill: #818181;
+}
+
+.logo > use {
+  width: 24px;
+  height: 24px;
+  fill: #818181;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+}
+.nav-link {
+}
+.header-form {
+}
+.input {
+}
