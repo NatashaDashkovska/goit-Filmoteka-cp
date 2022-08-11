@@ -1,0 +1,51 @@
+.header-form {
+  position: relative;
+
+  @include for-size(tablet) {
+    margin-right: auto;
+    margin-left: auto;
+    width: 336px;
+
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.input {
+  width: 100%;
+  padding-bottom: 4px;
+
+  display: flex;
+  align-items: center;
+
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $primary-white-color;
+
+  border-style: hidden;
+  border-bottom: 0.5px solid $primary-white-color;
+  background: none;
+
+  @include for-size(tablet) {
+    width: 336px;
+  }
+}
+
+.input::placeholder {
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+
+  color: $primary-white-color;
+}
+
+.input-icon {
+  position: absolute;
+  bottom: 6px;
+  right: 0px;
+}

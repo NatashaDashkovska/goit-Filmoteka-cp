@@ -1,30 +1,81 @@
 .header {
-  background-image: url('../images/1-320.jpg');
-  padding: 46px 20px 97px;
+  padding: 46px 0px 97px;
+
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url('../images/1-320.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(47, 48, 58, 0.1);
+
+  @media screen and (max-width: 320px) {
+    max-width: 320px;
+    max-height: 230px;
+  }
+
+  @include for-size(tablet) {
+    padding: 41px 0px 97px;
+
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url('../images/1-768.jpg');
+  }
+
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url('../images/1-1024.jpg');
+  }
 }
 
 .nav {
-  display: flex;
-}
-.logo svg {
-  width: 24px;
-  height: 24px;
-  fill: #818181;
-}
+  margin-bottom: 41px;
 
-.logo > use {
-  width: 24px;
-  height: 24px;
-  fill: #818181;
-  display: block;
+  display: flex;
+  align-items: baseline;
 }
 
 .nav-links {
+  margin-left: 112px;
+  padding-inline-start: 0;
+
   display: flex;
+
+  @include for-size(tablet) {
+    margin-left: 303px;
+  }
+
+  @include for-size(desktop) {
+    margin-left: 564px;
+  }
+}
+
+.nav-links > li {
+  &:not(:last-child) {
+    margin-right: 39px;
+  }
 }
 .nav-link {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.16;
+
+  text-transform: uppercase;
+
+  color: $primary-white-color;
 }
-.header-form {
-}
-.input {
+
+.active {
+  border-bottom: 3px solid $accent-color;
 }

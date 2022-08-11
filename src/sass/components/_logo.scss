@@ -1,0 +1,39 @@
+.logo {
+  display: block;
+  @include for-size(tablet) {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+.logo svg {
+  width: 24px;
+  height: 24px;
+}
+
+.logo use {
+  width: 24px;
+  height: 24px;
+}
+
+.logo-span {
+  display: none;
+
+  @include for-size(tablet) {
+    margin-left: 12px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+
+    color: $primary-white-color;
+  }
+  @include for-size(desktop) {
+    margin-left: 10px;
+  }
+}
