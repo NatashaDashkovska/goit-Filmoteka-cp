@@ -1,0 +1,17 @@
+{{#each this}}
+
+  <li class='movie-card'>
+    <img
+      src='https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}'
+      alt=''
+      class='movie-img'
+    />
+    <h2 class='movie-title'>{{name}}</h2>
+    <div class='movie-info'>
+      {{genres}}
+      |
+      {{year}}
+    </div>
+  </li>
+
+{{/each}}
