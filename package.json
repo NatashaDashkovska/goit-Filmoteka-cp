@@ -18,15 +18,18 @@
     "url": "https://github.com/NatashaDashkovska/goit-Filmoteka-cp/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "modern-normalize": "^1.1.0",
+    "tui-pagination": "^3.4.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
-    "parcel": "^2.6.0",
-    "parcel-reporter-clean-dist": "^1.0.4",
-    "posthtml-include": "^1.7.4",
+    "cssnano": "^4.1.11",
     "handlebars": "^4.7.7",
-    "parcel-plugin-handlebars-precompile": "^1.0.2"
+    "parcel": "^2.6.0",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-reporter-clean-dist": "^1.0.4",
+    "postcss-preset-env": "^6.7.0",
+    "posthtml-include": "^1.7.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
