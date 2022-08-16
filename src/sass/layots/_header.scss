@@ -50,6 +50,7 @@
   padding-inline-start: 0;
 
   display: flex;
+  padding: 0;
 
   @include for-size(tablet) {
     margin-left: 303px;

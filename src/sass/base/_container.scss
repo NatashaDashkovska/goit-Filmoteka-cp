@@ -1,7 +1,7 @@
 .container {
   // width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin-right: auto;
   margin-left: auto;
 
@@ -11,6 +11,8 @@
 
   @include for-size(tablet) {
     width: 648px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   @include for-size(desktop) {

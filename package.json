@@ -2,6 +2,7 @@
   "name": "filmoteka",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "homepage": "https://natashadashkovska.github.io/goit-Filmoteka-cp",
   "scripts": {
     "start": "parcel src/*.html",

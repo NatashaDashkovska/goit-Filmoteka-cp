@@ -1,5 +1,5 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.css';
 import { fetchTrends } from './apiService';
 const container = document.getElementById('tui-pagination-container');
 const galleryRef = document.querySelector('.gallery');
@@ -18,7 +18,8 @@ const options = {
   // below default value of options
   totalItems: 20000,
   itemsPerPage: 20,
-  visiblePages: 7,
+
+  visiblePages: window.screen.availWidth <= 320 ? 3 : 7,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -41,4 +42,5 @@ const options = {
       '</a>',
   },
 };
+
 const pagination = new Pagination(container, options);
