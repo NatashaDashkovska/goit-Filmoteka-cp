@@ -1,12 +1,13 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { fetchTrends } from './apiService';
-const container = document.getElementById('tui-pagination-container');
-const galleryRef = document.querySelector('.gallery');
+import { refs } from './refs';
+
 let page = 1;
-container.addEventListener('click', e => {
+
+refs.container.addEventListener('click', e => {
   setTimeout(() => {
-    galleryRef.textContent = '';
+    refs.galleryRef.textContent = '';
     let activePage = document.querySelector('.tui-is-selected');
 
     page = activePage.textContent;
@@ -43,4 +44,4 @@ const options = {
   },
 };
 
-const pagination = new Pagination(container, options);
+const pagination = new Pagination(refs.container, options);

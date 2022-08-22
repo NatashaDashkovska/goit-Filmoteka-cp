@@ -1,12 +1,48 @@
-<div class="modal-body">    <img
+<div class="modal-body">   
+  
+  {{#if poster_path}}
+   <img
       src='https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{poster_path}}'
-      alt=''
+      alt='{{title}}{{name}}'
       class='modal-image'
     />
-    <div>
-      <h2 class='movie-title'>{{title}}</h2>
+   
+        {{else}}
+   <img 
+   src='https://i.pinimg.com/736x/83/46/1d/83461d0ef2351335f037cb38f42cbac7.jpg'
 
-      <div>
+   
+      
+     width="300px"
+     height="400px"
+      alt='{{title}}{{name}}'
+      class='modal-image'
+   
+   />
+   {{/if}}
+    <div>
+      <h2 class='modal-title'>{{title}}{{name}}</h2>
+
+ {{#if profile_path}}
+ 
+ <ul>
+     <li class="info-block"><span class='person-title'>BIRTHDAY</span><span
+              class='value'
+            >{{birthday}}</span></li>
+  <li class="info-block"><span class='person-title'>DEATHDAY</span><span
+              class='value'
+            >{{deathday}}</span></li>
+              <li class="info-block"><span class='person-title'>Popularity</span><span
+              class='value'
+            >{{popularity}}</span></li>
+ 
+  <li></li>
+  <li></li>
+ </ul>
+ 
+ 
+
+ {{else}}     <div>
         <ul>
           <li class="info-block"><span class='title'>Vote / Votes</span><span class="info"><span
                 class='vote'
@@ -18,7 +54,7 @@
             >{{popularity}}</span></li>
           <li class="info-block"><span class='title'>Original Title</span><span
               class='value'
-            >{{original_title}}</span></li>
+            >{{original_title}}{{original_name}}</span></li>
           <li class="info-block"><span class='title'>Genre</span><span class='value'><ul>{{#each genres}}
                 <li>{{name}}</li>{{/each}}</ul></li>
         </ul></span></li>
@@ -32,6 +68,8 @@
         <li><a href='' class="modal-btn">add to Watched</a></li>
         <li><a href='' class="modal-btn">add to queue</a></li>
       </ul>
-    </div></div>
+    </div>
+       {{/if}}
+    </div>
 
 
