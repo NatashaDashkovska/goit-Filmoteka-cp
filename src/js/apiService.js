@@ -1,6 +1,7 @@
 import { genres } from './genres';
 import template from '../templates/moviePreview';
 import { refs, token } from './refs';
+import { createPagination } from './pagination';
 
 const baseURL = 'https://api.themoviedb.org/3/trending/all/day';
 let totalPages = 0;
@@ -10,14 +11,13 @@ export function fetchTrends(page) {
   fetch(`${baseURL}?api_key=${token}&page=${page}`)
     .then(res => res.json())
     .then(next => {
-      console.log(next.results);
+      // console.log(next.results);
       renderGallery(next);
     });
 }
 
-function renderGallery(next) {
+export function renderGallery(next) {
   next.results.map(movie => {
-    // console.log(movie);
     let elemGenres = movie.genre_ids || [];
 
     let genresArr = [];
@@ -69,10 +69,20 @@ function renderGallery(next) {
       movie.genres = elemGenres;
       movie.year = minYear + '-' + maxYear;
     }
+    if (!movie.media_type) {
+      movie.media_type = 'movie';
+    }
   });
 
   totalPages = next.total_pages;
+
   refs.galleryRef.insertAdjacentHTML('beforeend', template(next.results));
+
+  const paginationRef = document.querySelector('.pagination');
+
+  if (!paginationRef) {
+    createPagination(page, totalPages);
+  }
 }
 
 fetchTrends(1);

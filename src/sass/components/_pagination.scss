@@ -1,0 +1,52 @@
+.pagination {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.page-item {
+  display: block;
+  align-items: center;
+  text-align: center;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  width: 40px;
+  height: 40px;
+
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  color: $primary-dark-color;
+
+  cursor: pointer;
+}
+
+.page-active {
+  width: 40px;
+  height: 40px;
+
+  background-color: $accent-color;
+  border-radius: 5px;
+}
+
+.arrow-left {
+  background-image: url('../images/icons/arrowLeft.svg');
+  margin-right: 8px;
+}
+
+.arrow-right {
+  background-image: url('../images/icons/arrowRight.svg');
+
+  margin-left: 8px;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-position: 12px;
+  background-color: $secondary-grey-color;
+  cursor: pointer;
+}

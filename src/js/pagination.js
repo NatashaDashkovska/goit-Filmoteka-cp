@@ -1,47 +1,72 @@
-import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
 import { fetchTrends } from './apiService';
+import { searchMovies } from './searchMovies';
 import { refs } from './refs';
 
-let page = 1;
+refs.paginationContainerRef.addEventListener('click', changePage);
 
-refs.container.addEventListener('click', e => {
-  setTimeout(() => {
-    refs.galleryRef.textContent = '';
-    let activePage = document.querySelector('.tui-is-selected');
+function changePage(e) {
+  // console.dir(e.target);
+  let currentPage = e.target.textContent;
+  let lastPage = e.target.parentNode.id;
+  const activePageRef = document.querySelector('.page-active ');
 
-    page = activePage.textContent;
-    fetchTrends(page);
-  }, 0);
-});
+  const value = Number(activePageRef.textContent);
 
-const options = {
-  // below default value of options
-  totalItems: 20000,
-  itemsPerPage: 20,
+  if (e.target.classList.contains('arrow-left')) {
+    if (value != 1) {
+      currentPage = value - 1;
+    } else {
+      return;
+    }
+  }
 
-  visiblePages: window.screen.availWidth <= 320 ? 3 : 7,
-  page: 1,
-  centerAlign: true,
-  firstItemClassName: 'tui-first-child',
-  lastItemClassName: 'tui-last-child',
-  template: {
-    page: '<a href="#" class="tui-page-btn" style="border:none">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected " style="background-color:#FF6B08; width:40px; height:40px; border-radius:5px; padding:13px; border:none">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}" >' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}" >{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip" style="border:none; cursor:not-allowed">' +
-      '<span class="tui-ico-ellip ">...</span>' +
-      '</a>',
-  },
-};
+  if (e.target.classList.contains('arrow-right')) {
+    if (value != lastPage) {
+      currentPage = value + 1;
+    } else {
+      return;
+    }
+  }
 
-const pagination = new Pagination(refs.container, options);
+  refs.galleryRef.textContent = '';
+
+  if (!refs.inputRef.value) {
+    fetchTrends(currentPage);
+  } else {
+    searchMovies(refs.inputRef.value, currentPage);
+  }
+  createPagination(Number(currentPage), Number(lastPage));
+}
+
+function createPagination(currentPage, lastPage) {
+  const paginationRef = document.querySelector('.pagination');
+
+  if (paginationRef) {
+    refs.paginationContainerRef.removeChild(paginationRef);
+  }
+
+  let template = `<ul class="pagination" id="${lastPage}"><li class="arrow-left arrow"></li>`;
+
+  let step = 2;
+  for (let i = 1; i <= lastPage; i++) {
+    if (i === currentPage) {
+      template += `<li class="page-item page-active">${i}</li>`;
+    } else if (
+      (i === 1 && window.screen.availWidth >= 768) ||
+      (currentPage - step <= i && currentPage + step >= i) ||
+      (i === lastPage && window.screen.availWidth >= 768)
+    ) {
+      template += `<li class="page-item">${i}</li>`;
+    } else if (
+      (i === currentPage - (step + 1) && window.screen.availWidth >= 768) ||
+      (i === currentPage + (step + 1) && window.screen.availWidth >= 768)
+    ) {
+      template += `<li class="page-item">...</li>`;
+    }
+  }
+  template += `<li class="arrow-right arrow"></li></ul>`;
+
+  refs.paginationContainerRef.insertAdjacentHTML('afterbegin', template);
+}
+
+export { createPagination };
