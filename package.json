@@ -2,7 +2,6 @@
   "name": "filmoteka",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "homepage": "https://natashadashkovska.github.io/goit-Filmoteka-cp",
   "scripts": {
     "start": "parcel src/*.html",
@@ -19,15 +18,30 @@
     "url": "https://github.com/NatashaDashkovska/goit-Filmoteka-cp/issues"
   },
   "dependencies": {
-    "modern-normalize": "^1.1.0"
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@inventory/parcel-plugin-handlebars": "^1.0.0",
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/desktop": "^5.2.0",
+    "axios": "^0.21.4",
+    "basiclightbox": "^5.0.4",
+    "firebase": "^9.9.3",
+    "firebaseui": "^6.0.1",
+    "handlebars": "^4.7.7",
+    "material-design-icons": "^3.0.1",
+    "modern-normalize": "^1.1.0",
+    "node-sass": "^7.0.1",
+    "parcel-bundler": "^1.12.5",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "parcel-plugin-nuke-dist": "^1.0.1",
+    "parcel-transformer-hbs": "^1.0.4"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "cssnano": "^4.1.11",
     "handlebars": "^4.7.7",
     "parcel": "^2.6.0",
-    "parcel-plugin-handlebars-precompile": "^1.0.2",
     "parcel-reporter-clean-dist": "^1.0.4",
+    "postcss": "^8.4.14",
     "postcss-preset-env": "^6.7.0",
     "posthtml-include": "^1.7.4"
   },

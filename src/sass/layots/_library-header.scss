@@ -1,0 +1,97 @@
+.library-header {
+  padding: 46px 0px 97px;
+
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url('../images/2@2x-320.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(47, 48, 58, 0.1);
+
+  @media screen and (max-width: 320px) {
+    max-width: 320px;
+    max-height: 230px;
+  }
+
+  @include for-size(tablet) {
+    padding: 41px 0px 97px;
+    height: 230px;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url('../images/2@2x-768.jpg');
+  }
+
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url('../images/2@2x-1024.jpg');
+  }
+}
+
+.library-nav {
+  margin-bottom: 46px;
+
+  display: flex;
+  align-items: baseline;
+}
+
+// --------------------------
+.library-btns {
+  display: flex;
+
+  & > li:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  @include for-size(tablet) {
+    justify-content: center;
+
+    & > li:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}
+
+.library-btn {
+  width: 130px;
+  height: 44px;
+  padding: 14px 36px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* or 133% */
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    background: $accent-color;
+    border: 1px solid $accent-color;
+  }
+
+  @include for-size(tablet) {
+    width: 136px;
+    padding: 13px 38px;
+  }
+}

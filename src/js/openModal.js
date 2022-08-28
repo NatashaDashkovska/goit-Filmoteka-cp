@@ -1,4 +1,4 @@
-import modalTemplate from '../templates/movieModal';
+import modalTemplate from '../templates/movieModal.hbs';
 import { refs, token } from './refs';
 
 let mas = {};

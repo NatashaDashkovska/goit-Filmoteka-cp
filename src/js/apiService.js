@@ -1,5 +1,5 @@
 import { genres } from './genres';
-import template from '../templates/moviePreview';
+import template from '../templates/moviePreview.hbs';
 import { refs, token } from './refs';
 import { createPagination } from './pagination';
 
